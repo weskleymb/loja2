@@ -9,6 +9,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	
 		<class>br.senac.rn.loja.model.Departamento</class>
+		<class>br.senac.rn.loja.model.Marca</class>
 		
 		<properties>
 		
