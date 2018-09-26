@@ -1,7 +1,6 @@
 package br.senac.rn.loja.testes;
 
 import br.senac.rn.loja.dao.MarcaDAO;
-import br.senac.rn.loja.model.Marca;
 
 public class TestaDepartamento {
 
@@ -13,11 +12,11 @@ public class TestaDepartamento {
 //		produto.setDepartamento(new DepartamentoDAO().findById(1));
 //		
 //		new ProdutoDAO().insert(produto);
+//		
+//		Marca m = new Marca();
+//		m.setNome("Topper");
 		
-		Marca m = new Marca();
-		m.setNome("Topper");
-		
-		new MarcaDAO().insert(m);
+		System.out.println(new MarcaDAO().findById(2));
 		
 	}
 
