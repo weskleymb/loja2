@@ -1,32 +1,30 @@
 package br.senac.rn.loja.dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import br.senac.rn.loja.model.Produto;
 
-import br.senac.rn.loja.model.Departamento;
-
-public class DepartamentoDAO extends GenericDAO<Departamento> {
+public class ProdutoDAO extends GenericDAO<Produto> {
 
 	private EntityManagerFactory factory;
 	private EntityManager manager;
 	
-	public DepartamentoDAO() {
+	public ProdutoDAO() {
 		this.factory = Persistence.createEntityManagerFactory("ConexaoDB");
 		this.manager = factory.createEntityManager();
 	}
-		
-	public Departamento findById(Integer id) {
-		return manager.find(Departamento.class, id);
+	
+	public Produto findById(Integer id) {
+		return manager.find(Produto.class, id);
 	}
 	
-	public List<Departamento> findAll() {
-		String sql = "SELECT d FROM Departamento d";
-		TypedQuery<Departamento> query = manager
-				.createQuery(sql, Departamento.class);
+	public List<Produto> findAll() {
+		String sql = "SELECT p FROM Produto p";
+		TypedQuery<Produto> query = manager
+				.createQuery(sql, Produto.class);
 		return query.getResultList();
 	}
 	

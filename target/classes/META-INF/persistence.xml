@@ -10,6 +10,7 @@
 	
 		<class>br.senac.rn.loja.model.Departamento</class>
 		<class>br.senac.rn.loja.model.Marca</class>
+		<class>br.senac.rn.loja.model.Produto</class>
 		
 		<properties>
 		

@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import br.senac.rn.loja.model.Marca;
 
-public class MarcaDAO {
+public class MarcaDAO extends GenericDAO<Marca> {
 
 	private EntityManagerFactory factory;
 	private EntityManager manager;
@@ -16,25 +16,7 @@ public class MarcaDAO {
 		this.factory = Persistence.createEntityManagerFactory("ConexaoDB");
 		this.manager = factory.createEntityManager();
 	}
-	
-	public void insert(Marca marca) {
-		manager.getTransaction().begin();
-		manager.persist(marca);
-		manager.getTransaction().commit();
-	}
-	
-	public void update(Marca marca) {
-		manager.getTransaction().begin();
-		manager.merge(marca);
-		manager.getTransaction().commit();
-	}
-	
-	public void delete(Marca marca) {
-		manager.getTransaction().begin();
-		manager.remove(marca);
-		manager.getTransaction().commit();
-	}
-	
+		
 	public Marca findById(Integer id) {
 		return manager.find(Marca.class, id);
 	}

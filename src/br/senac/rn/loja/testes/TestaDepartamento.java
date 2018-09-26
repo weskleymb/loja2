@@ -1,26 +1,23 @@
 package br.senac.rn.loja.testes;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import br.senac.rn.loja.dao.DepartamentoDAO;
-import br.senac.rn.loja.model.Departamento;
+import br.senac.rn.loja.dao.MarcaDAO;
+import br.senac.rn.loja.model.Marca;
 
 public class TestaDepartamento {
 
 	public static void main(String[] args) {
 
-		Departamento departamento = new Departamento();
-		departamento.setNome("Eletrodomesticos");
-		departamento.setSigla("ELD");
-		departamento.setDesconto(0.07f);
-		departamento.setFone("8432321415");
+//		Produto produto = new Produto();
+//		produto.setNome("Camisa Generica");
+//		produto.setMarca(new MarcaDAO().findById(1));
+//		produto.setDepartamento(new DepartamentoDAO().findById(1));
+//		
+//		new ProdutoDAO().insert(produto);
 		
-		DepartamentoDAO dao = new DepartamentoDAO();
-		dao.insert(departamento);
+		Marca m = new Marca();
+		m.setNome("Topper");
 		
-		System.out.println(dao.findAll());
+		new MarcaDAO().insert(m);
 		
 	}
 
