@@ -13,8 +13,7 @@ public class ProdutoDAO extends GenericDAO<Produto> {
 			
 	public List<Produto> findAll() {
 		String sql = "SELECT p FROM Produto p";
-		TypedQuery<Produto> query = manager
-				.createQuery(sql, Produto.class);
+		TypedQuery<Produto> query = super.getEntityManager().createQuery(sql, Produto.class);
 		return query.getResultList();
 	}
 	

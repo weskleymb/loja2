@@ -13,8 +13,7 @@ public class DepartamentoDAO extends GenericDAO<Departamento> {
 		
 	public List<Departamento> findAll() {
 		String sql = "SELECT d FROM Departamento d";
-		TypedQuery<Departamento> query = manager
-				.createQuery(sql, Departamento.class);
+		TypedQuery<Departamento> query = super.getEntityManager().createQuery(sql, Departamento.class);
 		return query.getResultList();
 	}
 	

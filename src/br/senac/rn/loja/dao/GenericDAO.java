@@ -4,12 +4,19 @@ import javax.persistence.EntityManager;
 
 public abstract class GenericDAO<T> {
 
-	protected EntityManager manager = DataBase.getEntityManager();
+	private static EntityManager manager;
 
 	public abstract Class<T> getClassType();
 
+	protected EntityManager getEntityManager() {
+		if (manager == null || !manager.isOpen()) {
+			manager = DataBase.getInstance().getEntityManager();
+		}
+		return manager;
+	}
+
 	private void operacaoDataBase(Operacao operacao, T entity) {
-		manager.getTransaction().begin();
+		this.getEntityManager().getTransaction().begin();
 		switch (operacao) {
 			case INSERIR:
 				manager.persist(entity);
@@ -20,9 +27,9 @@ public abstract class GenericDAO<T> {
 			case ATUALIZAR:
 				manager.merge(entity);
 		}
-		manager.getTransaction().commit();
+		this.getEntityManager().getTransaction().commit();
 	}
-
+	
 	public void insert(T entity) {
 		operacaoDataBase(Operacao.INSERIR, entity);
 	}
@@ -36,7 +43,7 @@ public abstract class GenericDAO<T> {
 	}
 
 	public T findById(Integer id) {
-		return manager.find(this.getClassType(), id);
+		return this.getEntityManager().find(this.getClassType(), id);
 	}
 
 }

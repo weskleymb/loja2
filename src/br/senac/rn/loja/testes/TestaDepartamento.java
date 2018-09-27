@@ -4,7 +4,7 @@ import br.senac.rn.loja.dao.MarcaDAO;
 
 public class TestaDepartamento {
 
-	public static void main(String[] args) {
+	public static void main(String... args) {
 
 //		Produto produto = new Produto();
 //		produto.setNome("Camisa Generica");

@@ -19,6 +19,12 @@ public class Produto {
 	private Departamento departamento;
 	@ManyToOne
 	private Marca marca;
+	private Float valor;
+	
+	public Produto() {
+		this.marca = new Marca();
+		this.departamento = new Departamento();
+	}
 	
 	public Integer getId() {
 		return id;
@@ -52,6 +58,14 @@ public class Produto {
 		this.marca = marca;
 	}
 	
+	public Float getValor() {
+		return valor;
+	}
+
+	public void setValor(Float valor) {
+		this.valor = valor;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

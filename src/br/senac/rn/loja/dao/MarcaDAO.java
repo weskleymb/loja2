@@ -15,8 +15,7 @@ public class MarcaDAO extends GenericDAO<Marca> {
 	
 	public List<Marca> findAll() {
 		String sql = "SELECT m FROM Marca m";
-		TypedQuery<Marca> query = manager
-				.createQuery(sql, Marca.class);
+		TypedQuery<Marca> query = super.getEntityManager().createQuery(sql, Marca.class);
 		return query.getResultList();
 	}
 
