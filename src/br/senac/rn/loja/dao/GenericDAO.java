@@ -25,13 +25,13 @@ public abstract class GenericDAO<T> {
 		this.getEntityManager().getTransaction().begin();
 		switch (operacao) {
 			case INSERIR:
-				manager.persist(entity);
+				this.getEntityManager().persist(entity);
 				break;
 			case REMOVER:
-				manager.remove(entity);
+				this.getEntityManager().remove(entity);
 				break;
 			case ATUALIZAR:
-				manager.merge(entity);
+				this.getEntityManager().merge(entity);
 		}
 		this.getEntityManager().getTransaction().commit();
 	}
