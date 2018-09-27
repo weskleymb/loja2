@@ -16,7 +16,7 @@ public class TestaDepartamento {
 //		Marca m = new Marca();
 //		m.setNome("Topper");
 		
-		System.out.println(new MarcaDAO().findById(2));
+		System.out.println(new MarcaDAO().findByNome("top"));
 		
 	}
 
